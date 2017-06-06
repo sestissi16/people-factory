@@ -6,7 +6,14 @@ function handleSubmit(ev) {
     const details = document.querySelector('#details')
     const name = f.personName.value
 
-    details.innerHTML += `<strong>${name}</strong>`
+    //This does the same thing as... 
+    const boldedName = document.createElement('strong')
+    boldedName.textContent = name
+
+    //...this right here
+    //details.innerHTML += `<strong>${name}</strong>`
+    details.appendChild(boldedName)
+
     /*const heading = document.querySelector('h1')
     heading.textContent = f.personName.value + ', ' + f.personColor.value
     const textToAdd = document.createTextNode(f.personName.value + "'s favorite color is " + f.personColor.value)
