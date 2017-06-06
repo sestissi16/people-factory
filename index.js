@@ -6,7 +6,7 @@ function handleSubmit(ev) {
     const details = document.querySelector('#details')
     const name = f.personName.value
 
-    details.innerHTML +='<strong>' + name + '</strong>'
+    details.innerHTML += `<strong>${name}</strong>`
     /*const heading = document.querySelector('h1')
     heading.textContent = f.personName.value + ', ' + f.personColor.value
     const textToAdd = document.createTextNode(f.personName.value + "'s favorite color is " + f.personColor.value)
@@ -14,7 +14,5 @@ function handleSubmit(ev) {
     pElement.appendChild(textToAdd)
     document.getElementById('newP').style.color = f.personColor.value.toLowerCase()*/
 }
-
-
 
 personForm.addEventListener('submit', handleSubmit)
