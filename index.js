@@ -5,14 +5,24 @@ function handleSubmit(ev) {
     const f = ev.target
     const details = document.querySelector('#details')
     const name = f.personName.value
+    const favoriteColor = f.favoriteColor.value
+    const age = f.age.value
 
     //This does the same thing as... 
-    const boldedName = document.createElement('strong')
-    boldedName.textContent = name
+    // const boldedName = document.createElement('strong')
+    // boldedName.textContent = name
 
     //...this right here
     //details.innerHTML += `<strong>${name}</strong>`
-    details.appendChild(boldedName)
+    //details.appendChild(boldedName)
+
+    details.innerHTML = `
+        <ul>
+            <li>Name: ${name}</li>
+            <li>Favorite Color: ${favoriteColor}</li>
+            <li>Age: ${age}</li>
+        </ul>
+    `
 
     /*const heading = document.querySelector('h1')
     heading.textContent = f.personName.value + ', ' + f.personColor.value
