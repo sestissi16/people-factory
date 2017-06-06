@@ -12,9 +12,9 @@ function renderColor(color){
     `*/
 }
 
-function renderListIten(label, value){
+function renderListItem(label, value){
     const item = document.createElement('li')
-    item.textContent = `${label}: ${value}` 
+    item.innerHTML = `${label}: ${value}` 
     return item           
 }
 
@@ -38,7 +38,7 @@ function handleSubmit(ev) {
 
     const person = {
         name: f.personName.value,
-        favoriteColor: f.favoriteColor.value,
+        favoriteColor: renderColor(f.favoriteColor.value).outerHTML,
         age: f.age.value,
     }
 
