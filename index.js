@@ -1,5 +1,17 @@
 const personForm = document.querySelector('#personForm')
 
+function renderColor(color){
+    const div = document.createElement('div')
+    div.style.backgroundColor = color
+    div.style.width = '100px'
+    div.style.height = '50px'
+
+    return div
+    /*return `
+        <div style="background-color: ${color}; width:100px; height:50px"></div>
+    `*/
+}
+
 function handleSubmit(ev) {
     ev.preventDefault()
     const f = ev.target
@@ -8,7 +20,7 @@ function handleSubmit(ev) {
     const favoriteColor = f.favoriteColor.value
     const age = f.age.value
 
-    const colorDiv = `<div style="background-color: ${favoriteColor}; width:100px; height:50px"></div>`
+    //const colorDiv = `<div style="background-color: ${favoriteColor}; width:100px; height:50px"></div>`
 
     const bulletedList = document.createElement('ul')
     const nameBullet = document.createElement('li')
@@ -16,7 +28,7 @@ function handleSubmit(ev) {
     const ageBullet = document.createElement('li')
 
     nameBullet.textContent = `Name: ${name}`//'Name: ' + name``
-    colorBullet.innerHTML = `Favorite Color: ${colorDiv}` //'Favorite Color: ' 
+    colorBullet.innerHTML = `Favorite Color: ${renderColor(favoriteColor).outerHTML}` //'Favorite Color: ' 
     ageBullet.textContent = `Age: ${age}`//'Age: ' + age
     
 
