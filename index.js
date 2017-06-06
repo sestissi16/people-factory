@@ -12,31 +12,37 @@ function renderColor(color){
     `*/
 }
 
+function renderListIten(label, value){
+    const item = document.createElement('li')
+    item.textContent = `${label}: ${value}` 
+    return item           
+}
+
+function renderList(personData){
+    const list = document.createElement('ul')
+
+    //['name', 'favoriteColor', 'age']
+    Object.keys(personData).map(function(label){
+        const item = renderListItem(label, personData[label])
+        list.appendChild(item)
+    })
+    return list
+}
+
 function handleSubmit(ev) {
     ev.preventDefault()
     const f = ev.target
     const details = document.querySelector('#details')
-    const name = f.personName.value
-    const favoriteColor = f.favoriteColor.value
-    const age = f.age.value
 
     //const colorDiv = `<div style="background-color: ${favoriteColor}; width:100px; height:50px"></div>`
 
-    const bulletedList = document.createElement('ul')
-    const nameBullet = document.createElement('li')
-    const colorBullet = document.createElement('li')
-    const ageBullet = document.createElement('li')
+    const person = {
+        name: f.personName.value,
+        favoriteColor: f.favoriteColor.value,
+        age: f.age.value,
+    }
 
-    nameBullet.textContent = `Name: ${name}`//'Name: ' + name``
-    colorBullet.innerHTML = `Favorite Color: ${renderColor(favoriteColor).outerHTML}` //'Favorite Color: ' 
-    ageBullet.textContent = `Age: ${age}`//'Age: ' + age
-    
-
-    details.appendChild(bulletedList)
-    bulletedList.appendChild(nameBullet)
-    bulletedList.appendChild(colorBullet)
-    bulletedList.appendChild(ageBullet)
-    
+    details.appendChild(renderList(person))
 
     //This does the same thing as... 
     // const boldedName = document.createElement('strong')
