@@ -8,6 +8,7 @@ function handleSubmit(ev) {
     const textToAdd = document.createTextNode(f.personName.value + "'s favorite color is " + f.elements[1].value)
     const pElement = document.getElementById('newP')
     pElement.appendChild(textToAdd)
+    document.getElementById('newP').style.color = f.elements[1].value.toLowerCase()
 }
 
 
